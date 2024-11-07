@@ -5100,6 +5100,7 @@ self.C3_ExpressionFuncs = [
 		() => 0,
 		() => "",
 		() => "walking",
+		() => -10,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpBehavior() / 2);
@@ -5159,15 +5160,11 @@ self.C3_ExpressionFuncs = [
 			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
 			const n4 = p._GetNode(4);
-			return () => (and(((and(((and(((and(((and("Alex: ", n0.ExpObject("Alex")) + "\n") + "Don:  "), n1.ExpObject("Don")) + "\n") + "Lucas:"), n2.ExpObject("Lucas")) + "\n") + "Rob:  "), n3.ExpObject("Rob")) + "\n") + "Tom:  "), n4.ExpObject("Tom")) + "\n");
+			const n5 = p._GetNode(5);
+			return () => (and(((and(((and(((and(((and(((and("Alex:    ", n0.ExpObject("Alex")) + "\n") + "Don:     "), n1.ExpObject("Don")) + "\n") + "Lucas:   "), n2.ExpObject("Lucas")) + "\n") + "Rob:     "), n3.ExpObject("Rob")) + "\n") + "Tom:     "), n4.ExpObject("Tom")) + "\n") + "Dominik: "), n5.ExpObject("Dominik")) + "\n");
 		},
 		() => 1,
 		() => "HUD",
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			return () => (5 - (Math.abs((n0.ExpObject() - n1.ExpObject())) / 100));
-		},
 		() => "Tom",
 		p => {
 			const n0 = p._GetNode(0);
@@ -5195,7 +5192,11 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => add(n0.ExpObject("Don"), 1);
 		},
-		() => -10,
+		() => "Dominik",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => add(n0.ExpObject("Dominik"), 1);
+		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => ((("Congratulations " + v0.GetValue()) + "\n") + "Its your turn to do the Daily!");
